@@ -1,0 +1,7 @@
+---
+# This playbook deploys a dev configuration to an ubuntu
+
+- hosts: localhost
+  become: yes
+  roles:
+    - ubuntu.dev

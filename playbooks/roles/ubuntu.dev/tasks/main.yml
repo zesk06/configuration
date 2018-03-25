@@ -1,0 +1,18 @@
+---
+- name: test
+  debug: msg="coucou"
+# package installation
+- name: install packages
+  apt:
+    name:
+      - terminator
+      - virtualenv
+      - virtualenvwrapper
+      - zsh
+# user configuration
+- name: link .zshrc
+  become_user: zesk
+  file:
+    src: /home/zesk/git/configuration/playbooks/roles/common/files/.zshrc
+    dest: /home/zesk/.zshrc
+    state: link
