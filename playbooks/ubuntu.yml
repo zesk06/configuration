@@ -3,5 +3,8 @@
 
 - hosts: localhost
   become: yes
+  vars:
+    - user: zesk
+    - user_home: /home/zesk
   roles:
     - ubuntu.dev

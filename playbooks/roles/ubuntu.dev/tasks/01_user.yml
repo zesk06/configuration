@@ -1,0 +1,11 @@
+---
+- block:
+  - name: link .zshrc
+    file:
+      src: "{{ user_home }}/git/configuration/playbooks/roles/common/files/.zshrc"
+      dest: "{{ user_home }}/.zshrc"
+      state: link
+  - name: Oh-My-Zsh
+    git:
+      repo: https://github.com/robbyrussell/oh-my-zsh.git
+      dest: "{{ user_home }}/.oh-my-zsh"

@@ -1,20 +1,6 @@
 ---
 - name: test
-  debug: msg="coucou"
-# package installation
-- name: install packages
-  apt:
-    name:
-      - git
-      - gitk
-      - terminator
-      - virtualenv
-      - virtualenvwrapper
-      - zsh
-# user configuration
-- name: link .zshrc
-  become_user: zesk
-  file:
-    src: /home/zesk/git/configuration/playbooks/roles/common/files/.zshrc
-    dest: /home/zesk/.zshrc
-    state: link
+  debug: msg="coucou {{ user }}!"
+- import_tasks: 00_init.yml
+- import_tasks: 01_user.yml
+  

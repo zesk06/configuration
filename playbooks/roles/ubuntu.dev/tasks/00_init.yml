@@ -1,0 +1,13 @@
+---
+- name: install packages
+  apt:
+    name:
+      - git
+      - gitk
+      - terminator
+      - virtualenv
+      - virtualenvwrapper
+      - zsh
+- name: install visual code
+  apt:
+    deb: https://go.microsoft.com/fwlink/?LinkID=760868
