@@ -1,0 +1,29 @@
+---
+- name: install .vimrc conf
+  file:
+    src: "{{ playbook_dir }}/roles/vim/files/.vimrc.conf"
+    path: ~/.vimrc
+    state: link
+- name: Creating Pathogen folders
+  file:
+    dest: "{{ item }}"
+    state: directory
+  with_items:
+    - ~/.vim/autoload
+    - ~/.vim/bundle
+- name: install Pathogen to ~/.vim/autoload/pathogen.vim
+  get_url:
+    url: https://tpo.pe/pathogen.vim
+    dest: ~/.vim/autoload/pathogen.vim
+- name: install pathogen to ~/.vimrc
+  lineinfile:
+    dest: ~/.vimrc
+    line: "execute pathogen#infect()"
+- name: install sensible.vim plugin
+  git:
+    repo: https://github.com/tpope/vim-sensible.git
+    dest: ~/.vim/bundle/vim-sensible
+- name: install CtrlP plugin
+  git:
+    repo: https://github.com/kien/ctrlp.vim.git
+    dest: ~/.vim/bundle/ctrlp.vim

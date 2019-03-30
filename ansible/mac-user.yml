@@ -1,0 +1,6 @@
+---
+- name: Install MAC config
+  hosts: localhost
+  roles:
+    - common
+    - vim

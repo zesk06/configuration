@@ -1,0 +1,6 @@
+---
+- name: Coucou
+  debug:
+    msg: install VIM
+- import_tasks: 01_vim.yml
+- import_tasks: 02_tmux.yml

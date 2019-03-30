@@ -1,0 +1,7 @@
+---
+- name: tmux conf
+  file:
+    src: "{{ playbook_dir }}/roles/vim/files/.tmux.conf"
+    path: ~/.tmux.conf
+    state: link
+
